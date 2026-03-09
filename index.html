@@ -375,6 +375,153 @@
     }
     footer .logo { color: #fff; }
     footer p { font-size: .8rem; }
+
+    /* ── VIDEO MODAL ── */
+    .video-trigger {
+      display: inline-flex; align-items: center; gap: .9rem;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      padding: 1.1rem 2.2rem;
+      border: none; border-radius: 8px; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(0,87,255,.3);
+      transition: background .2s, transform .15s;
+    }
+    .video-trigger:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .play-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    .vmodal {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.85);
+      align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .vmodal.active { display: flex; }
+    .vmodal-box {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      max-height: 90vh;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0,0,0,.7);
+      background: #000;
+      animation: modalIn .3s ease;
+    }
+    @keyframes modalIn { from{transform:scale(.85);opacity:0} to{transform:scale(1);opacity:1} }
+    .vmodal-box video {
+      width: 100%;
+      display: block;
+      max-height: 88vh;
+      object-fit: contain;
+    }
+    .vmodal-close {
+      position: absolute; top: .7rem; right: .7rem; z-index: 10;
+      background: rgba(0,0,0,.7);
+      color: #fff;
+      border: none; border-radius: 50%;
+      width: 36px; height: 36px;
+      font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .vmodal-close:hover { background: rgba(255,0,0,.7); }
+
+    /* ── DEMO SECTION ── */
+    #demo {
+      background: linear-gradient(135deg, #0a1628 0%, #0d2952 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    #demo::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,87,255,.25) 0%, transparent 70%);
+      top: -150px; left: 50%; transform: translateX(-50%);
+      pointer-events: none;
+    }
+    #demo > * { position: relative; z-index: 1; }
+    .demo-badge {
+      display: inline-block;
+      background: #ffd700;
+      color: #0a1628;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: .85rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .5rem 1.3rem; border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%,100% { box-shadow: 0 0 0 0 rgba(255,215,0,.5); }
+      50%      { box-shadow: 0 0 0 12px rgba(255,215,0,0); }
+    }
+    #demo h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    #demo h2 span { color: #ffd700; }
+    #demo .demo-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,.8);
+      max-width: 580px; margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+    .demo-steps {
+      display: flex; justify-content: center; gap: 1.5rem;
+      flex-wrap: wrap; margin-bottom: 3rem;
+    }
+    .demo-step {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      min-width: 180px; max-width: 210px;
+      text-align: center;
+    }
+    .demo-step .ds-icon { font-size: 2rem; margin-bottom: .6rem; display: block; }
+    .demo-step h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .88rem; font-weight: 700;
+      margin-bottom: .3rem; color: #ffd700;
+    }
+    .demo-step p { font-size: .78rem; color: rgba(255,255,255,.7); line-height: 1.5; }
+    .btn-demo {
+      display: inline-flex; align-items: center; gap: .8rem;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 1.15rem;
+      padding: 1.15rem 2.5rem;
+      border-radius: 8px; text-decoration: none;
+      box-shadow: 0 8px 32px rgba(37,211,102,.45);
+      transition: background .2s, transform .2s;
+    }
+    .btn-demo:hover { background: var(--green-dk); transform: translateY(-3px); }
+    .demo-garantia {
+      margin-top: 1.3rem;
+      display: flex; justify-content: center; gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .demo-garantia span {
+      font-size: .82rem; color: rgba(255,255,255,.65);
+      display: flex; align-items: center; gap: .35rem;
+    }
+    .demo-garantia span b { color: #fff; }
+
   </style>
 </head>
 <body>
@@ -388,6 +535,7 @@
     <a href="#servicios">Servicios</a>
     <a href="#como">Cómo trabajamos</a>
     <a href="#testimonios">Clientes</a>
+    <a href="#demo" style="color:var(--blue);font-weight:800;">🎁 Demo gratis</a>
     <a class="nav-wa" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20saber%20m%C3%A1s" target="_blank">
       <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.524 5.85L0 24l6.335-1.508A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.801 9.801 0 01-5.031-1.385l-.36-.214-3.762.895.952-3.671-.235-.376A9.803 9.803 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
       WhatsApp
@@ -400,9 +548,9 @@
   <h1>Diseño Web Profesional<br>para que tu Negocio <em>Venda Más</em></h1>
   <p class="hero-sub">Creamos páginas diseñadas estratégicamente para convertir visitantes en clientes. Cada botón, cada sección y cada palabra empuja al usuario directo a tu WhatsApp.</p>
   <div class="hero-btns">
-    <a class="btn-primary" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20una%20web%20que%20venda" target="_blank">
+    <a class="btn-primary" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20pedir%20mi%20demo%20gratis%20sin%20compromiso" target="_blank">
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.524 5.85L0 24l6.335-1.508A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.801 9.801 0 01-5.031-1.385l-.36-.214-3.762.895.952-3.671-.235-.376A9.803 9.803 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-      Pedí tu presupuesto gratis
+      🎁 Pedí tu demo gratis
     </a>
     <a class="btn-outline-w" href="#planes">Ver planes y precios ↓</a>
   </div>
@@ -421,14 +569,24 @@
     <h2>Mirá cómo funciona una web <em>diseñada para vender</em></h2>
     <p>En menos de 2 minutos te explicamos por qué nuestras webs generan más contactos por WhatsApp.</p>
   </div>
-  <div class="video-wrap">
-    <video controls preload="metadata">
+  <div style="text-align:center;">
+    <button class="video-trigger" onclick="openModal('modal1')">
+      <span class="play-icon">▶</span>
+      <span>Ver video explicativo</span>
+    </button>
+    <p class="video-sub" style="margin-top:1rem;">¿Querés algo así para tu negocio? <a href="https://wa.me/5491100000000?text=Vi%20el%20video%20y%20quiero%20una%20web%20as%C3%AD" target="_blank">Escribinos ahora →</a></p>
+  </div>
+</section>
+
+<!-- MODAL VIDEO 1 -->
+<div class="vmodal" id="modal1" onclick="closeModal('modal1', event)">
+  <div class="vmodal-box">
+    <button class="vmodal-close" onclick="closeModal('modal1')">✕</button>
+    <video id="vid1" controls preload="metadata" playsinline>
       <source src="video.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
     </video>
   </div>
-  <p class="video-sub">¿Querés algo así para tu negocio? <a href="https://wa.me/5491100000000?text=Vi%20el%20video%20y%20quiero%20una%20web%20as%C3%AD" target="_blank">Escribinos ahora →</a></p>
-</section>
+</div>
 
 <!-- PLANES -->
 <section class="section section-alt" id="planes">
@@ -606,13 +764,61 @@
     <h2>Clientes que ya están <em>recibiendo consultas</em></h2>
     <p>Resultados concretos. Esto es lo que pasa cuando tu web trabaja para vos.</p>
   </div>
-  <div class="video-wrap">
-    <video controls preload="metadata">
+  <div style="text-align:center;">
+    <button class="video-trigger" onclick="openModal('modal2')">
+      <span class="play-icon">▶</span>
+      <span>Ver casos de éxito</span>
+    </button>
+    <p class="video-sub" style="margin-top:1rem;">¿Tu negocio podría ser el próximo caso de éxito? <a href="https://wa.me/5491100000000?text=Quiero%20resultados%20como%20los%20del%20video" target="_blank">Hablemos →</a></p>
+  </div>
+</section>
+
+<!-- MODAL VIDEO 2 -->
+<div class="vmodal" id="modal2" onclick="closeModal('modal2', event)">
+  <div class="vmodal-box">
+    <button class="vmodal-close" onclick="closeModal('modal2')">✕</button>
+    <video id="vid2" controls preload="metadata" playsinline>
       <source src="video2.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
     </video>
   </div>
-  <p class="video-sub">¿Tu negocio podría ser el próximo caso de éxito? <a href="https://wa.me/5491100000000?text=Quiero%20resultados%20como%20los%20del%20video" target="_blank">Hablemos →</a></p>
+</div>
+
+
+<!-- DEMO GRATIS -->
+<section id="demo">
+  <div class="demo-badge">🎁 Demo 100% Gratuita · Sin Compromiso</div>
+  <h2>Pedí tu <span>demo gratis</span> y<br>mirá tu web antes de pagar</h2>
+  <p class="demo-sub">Desarrollamos una vista previa real de tu página web. La ves terminada, la analizás con calma y, si te convence, recién ahí hablamos de pago. <strong>Si no te gusta, no pagás nada.</strong></p>
+
+  <div class="demo-steps">
+    <div class="demo-step">
+      <span class="ds-icon">💬</span>
+      <h4>1. Nos escribís</h4>
+      <p>Contanos tu negocio por WhatsApp en 5 minutos</p>
+    </div>
+    <div class="demo-step">
+      <span class="ds-icon">⚡</span>
+      <h4>2. Creamos tu demo</h4>
+      <p>En 48hs tenés una vista previa real de tu web lista</p>
+    </div>
+    <div class="demo-step">
+      <span class="ds-icon">👀</span>
+      <h4>3. La ves y decidís</h4>
+      <p>Si te gusta, avanzamos. Si no, no pagás absolutamente nada</p>
+    </div>
+  </div>
+
+  <a class="btn-demo" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20pedir%20mi%20demo%20gratis%20sin%20compromiso" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.524 5.85L0 24l6.335-1.508A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.801 9.801 0 01-5.031-1.385l-.36-.214-3.762.895.952-3.671-.235-.376A9.803 9.803 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Quiero mi demo gratis ahora
+  </a>
+
+  <div class="demo-garantia">
+    <span>✅ <b>Sin pago por adelantado</b></span>
+    <span>✅ <b>Sin contrato</b></span>
+    <span>✅ <b>Sin compromiso</b></span>
+    <span>✅ <b>Respuesta en menos de 1 hora</b></span>
+  </div>
 </section>
 
 <!-- POR QUÉ NOSOTROS -->
@@ -693,6 +899,30 @@
 </footer>
 
 <script>
+
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id, event) {
+    if (event && event.target !== document.getElementById(id)) return;
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+    // Pausar video
+    const vid = document.getElementById(id).querySelector('video');
+    if (vid) { vid.pause(); }
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.vmodal.active').forEach(m => {
+        m.classList.remove('active');
+        document.body.style.overflow = '';
+        const vid = m.querySelector('video');
+        if (vid) vid.pause();
+      });
+    }
+  });
+
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
